@@ -4,8 +4,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
+from sklearn.mixture import GaussianMixture
 RAND_STATE = 123
 np.random.seed(RAND_STATE)
+## GMM
 
 # Scatter plots with histograms and normal distributions
 def viz(data,mu,sd):
@@ -40,11 +42,16 @@ def viz(data,mu,sd):
   ax.spines['top'].set_visible(False)
   ax.spines['right'].set_visible(False)
 
+
+data = np.expand_dims(list(data1)+list(data2), axis=1)
+gmm = GaussianMixture(n_components=2, init_params='random_from_data')
+gmm.fit(data)
+
 print('GMM >>>')
 ### HW: Complete the code below ###
-w1,w2 = 0.5 , 0.5 # Q1 
-mu1,mu2 = 5 , 7 # Q2
-sd1,sd2 = .9 , .7 # Q3
+w1,w2 = gmm.weights_ # Q1 
+mu1,mu2 = gmm.means_.flatten() # Q2
+sd1,sd2 = np.sqrt(gmm.covariances_.flatten())# Q3
 
 mu = [mu1 , mu2] #convert into list format#
 sd = [sd1 , sd2] #convert into list format#
