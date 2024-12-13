@@ -1,5 +1,6 @@
 # PMU-B-PersonalAI
-[Readme.md](https://github.com/user-attachments/files/18126079/Readme.md)## **ABOUT ME**
+
+**ABOUT ME**
 
 ---
 
