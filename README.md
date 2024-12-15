@@ -508,3 +508,238 @@ Natural Language Processing (NLP) combined with supervised machine learning enab
 
 The project demonstrates how AI and social media analysis can provide early warnings for mental health concerns. By identifying and supporting individuals in distress, this system contributes to mental health awareness and care.
 
+
+
+
+# BiTNet: AI for Ultrasound Image Diagnosis
+
+**BiTNet** is an AI-powered system developed to identify abnormalities in the upper abdomen using ultrasound imaging. By aiding general practitioners in detecting conditions such as cholangiocarcinoma, it reduces the burden on radiologists and enhances diagnostic confidence for over 25 conditions, including fatty liver, cirrhosis, and gallstones.
+
+---
+
+## Dataset
+
+### Source  
+- **Ultrasound Screening**: Conducted every six months for high-risk Isan cohort groups.  
+
+### Image Details  
+- **Images per Patient**: 11–15 ultrasound scans.  
+- **Validation**: Tele-radiology consultations by expert radiologists ensure accuracy.
+
+### Data Preparation  
+- **Class Labels**: 14 abnormal categories + 1 normal category.  
+- **Data Split**:  
+
+| **Set**   | **Abnormal Cases** | **Abnormal Images** | **Normal Cases** | **Normal Images** | **Total Cases** | **Total Images** |
+|-----------|--------------------|---------------------|------------------|-------------------|-----------------|------------------|
+| Training  | 366                | 1,823               | 289              | 3,434             | 655             | 5,257            |
+| Testing   | 91                 | 455                 | 71               | 857               | 162             | 1,312            |
+
+### Preprocessing  
+- Removed sensitive details (e.g., patient names, ages).  
+- Resized all images to **456x456x3 pixels**.
+
+---
+
+## Data Augmentation
+
+To improve generalization and model robustness, the following augmentations were applied:  
+
+- **Horizontal and Vertical Shifts**  
+- **Rotation**: ±30°  
+- **Brightness Adjustment**  
+- **Shear Transformation**  
+- **Zoom**  
+- **No Flip**: Ensures ultrasound anatomy maintains its fixed orientation.
+
+---
+
+## Model Development
+
+**BiTNet (Biliary Tract Network)** is a tailored deep learning model based on EfficientNet-B5, with additional modifications incorporating Random Forests for classification.  
+
+### Model Architecture  
+1. **Base Model**: EfficientNet-B5 pre-trained on ImageNet.  
+   - Early layers frozen to retain general feature extraction.  
+   - Later layers fine-tuned for ultrasound-specific tasks.  
+2. **Enhancements**:  
+   - Added **Random Forest** at the final classification stage.  
+   - Supports classification for **15 abnormalities** and **5 viewing angles**.
+
+### Training Procedure  
+1. **Initialization**: Start with ImageNet-pretrained weights.  
+2. **Freezing**: Lock early convolutional layers during initial training.  
+3. **Fine-tuning**: Gradually unfreeze layers and optimize the model for ultrasound images.
+
+---
+
+## Applications
+
+### 1. Automatic Pre-Screening  
+**Purpose**: Minimize the radiologist’s workload by automatically identifying normal scans.  
+
+**Workflow**:  
+1. Sonographer inputs an ultrasound image.  
+2. **BiTNet** processes the image:  
+   - If "Normal" confidence is **100%**, no review is needed.  
+   - If flagged as "Abnormal," the image is forwarded to a radiologist for analysis.
+
+### 2. Diagnostic Assistance Tool  
+**Purpose**: Equip general practitioners with AI support for early diagnosis.  
+
+**Workflow**:  
+1. Upload ultrasound images to BiTNet via a web interface.  
+2. BiTNet provides:  
+   - Classification results (15 abnormalities + normal).  
+   - Prediction confidence scores.  
+   - Attention maps highlighting key regions.  
+   - Viewing angle analysis.  
+   - Top 3 diagnostic recommendations.
+
+---
+
+## Model Evaluation
+
+### 1. Independent Samples T-Test  
+**Objective**: Compare prediction confidence between BiTNet and baseline EfficientNet.  
+- **Hypothesis**: BiTNet exhibits significantly higher confidence levels.
+
+### 2. Paired Samples T-Test  
+**Objectives**:  
+1. Assess diagnostic performance (accuracy, precision, recall) with and without BiTNet.  
+   - **Hypothesis**: BiTNet assistance improves performance significantly.  
+2. Compare participant accuracy across two testing rounds.  
+   - **Hypothesis**: No substantial accuracy differences between rounds.  
+3. Compare AI predictions to human decisions (with and without BiTNet).  
+   - **Hypothesis**: AI-assisted users demonstrate higher agreement with final diagnoses.
+
+---
+
+## Performance Highlights
+
+- **Overall Accuracy**: Improved by **18%**.  
+- **General Practitioner Accuracy**: Increased by **26%**.  
+
+### Visualization Features  
+1. **Attention Maps**: Display regions influencing BiTNet’s predictions.  
+2. **Confidence Plots**: Show prediction confidence distributions for normal vs. abnormal cases.
+
+---
+
+## Summary
+
+- **BiTNet** is the **world’s first AI system** to screen for cholangiocarcinoma (CCA) using ultrasound imaging.  
+- It can diagnose **25 upper abdominal conditions**.  
+- Deployed in **Srinagarind Hospital** and **205 affiliated hospitals**.  
+- Delivered as a **cloud-based AI service** to enhance accessibility.
+
+---
+
+## Future Enhancements
+
+The next iteration, **BiTNet V2**, will feature a larger dataset and refined training methodologies.  
+
+### Expanded Dataset:  
+- **Cases**: 25,676  
+- **Images**: 228,177  
+- **Duration**: Spanning 10 years of historical data.
+
+
+
+
+# AI for Criminal Arrest Assistance
+
+The **Research and Development of Tracking Systems for Arresting Criminals Using Artificial Intelligence** project aims to improve law enforcement capabilities and public safety. By employing AI-powered systems, the project facilitates real-time crime monitoring, evidence collection via CCTV, and the detection and tracking of suspects or vehicles.
+
+---
+
+## Real-Time Object Detection
+
+### Overview of Object Detection  
+- **Definition**: Object detection involves identifying and locating multiple objects within images or video streams.  
+- **Objective**: Create algorithms that deliver accurate object detection with high-speed processing.  
+
+### Significance of Object Detection  
+- **Visual Modality**: Humans efficiently process visual information in real-time using only their vision, without relying on advanced sensors like radar.  
+- **Robotics Applications**: Real-time, vision-based object detection is essential for responsive robotic systems, reducing the need for complex sensor setups.  
+
+---
+
+## YOLO (You Only Look Once)
+
+### YOLO Overview  
+1. **Grid Division**: The input image is split into an S × S grid.  
+2. **Bounding Box Prediction**: Each grid cell predicts **B** bounding boxes.  
+3. **Predicted Values**:  
+   - **x, y**: Center coordinates of the object relative to the grid cell.  
+   - **w, h**: Dimensions of the bounding box.  
+   - **Confidence**: Probability that the box contains an object.
+
+---
+
+### Training YOLO  
+
+- **Regression-Based Approach**: YOLO treats object detection as a regression task.  
+- **Input (X)**: Images represented as a matrix of size `width × height × RGB channels`.  
+- **Output (Y)**: A tensor of size `S × S × (B × 5 + C)`, where:  
+  - **B × 5**: Bounding box parameters (x, y, w, h, confidence).  
+  - **C**: Class probability distribution per grid cell.
+
+---
+
+### YOLO Architecture  
+
+- **Input Dimensions**: `448 × 448 × 3` (image with RGB channels).  
+- **Network**: Composed of **7 convolutional layers** for feature extraction.  
+- **Parameters**:  
+  - **S = 7**: Number of grid cells.  
+  - **B = 2**: Bounding boxes per grid cell.  
+  - **C = 20**: Object classes.  
+- **Output Tensor**: `S × S × (5B + C) = 7 × 7 × 30`.
+
+---
+
+## Non-Maximal Suppression (NMS)
+
+### Purpose  
+Finalize predictions by filtering redundant bounding boxes.  
+
+### Steps  
+1. Discard boxes with low confidence scores.  
+2. Calculate the class score using `Pr(Class | Object)`.  
+3. Retain the bounding box with the highest confidence and remove overlapping boxes.  
+
+**Impact**: This post-processing step boosts the mean Average Precision (mAP) score by 2–3%.
+
+---
+
+## YOLO Loss Functions  
+
+1. **Localization Loss**:  
+   - Evaluates the accuracy of bounding box predictions (position and size).  
+   - Calculated using Mean Squared Error (MSE).  
+2. **Confidence Loss**:  
+   - Penalizes incorrect confidence predictions.  
+3. **Classification Loss**:  
+   - Measures the accuracy of class predictions for detected objects.
+
+---
+
+## YOLOv8: Advancements in Object Detection  
+
+### Key Features  
+- **Backbone**: Retains a structure similar to YOLOv5 but incorporates the advanced **C2f module** (Cross-Stage Partial Bottleneck with two convolutions).  
+- **C2f Module**: Merges high-level features with contextual details to enhance detection performance.  
+
+### Performance  
+Trained on datasets like **COCO**, YOLOv8 achieves exceptional accuracy and detection speed, making it a robust tool for real-world applications.
+
+---
+
+## Conclusion  
+
+This study demonstrates how AI can significantly enhance law enforcement efficiency in Thailand by:  
+
+1. Leveraging advanced object detection techniques to analyze crime-related data.  
+2. Utilizing AI-integrated CCTV systems for real-time surveillance and crime detection.  
+3. Generating immediate alerts for suspicious activities, providing actionable insights to police forces.  
