@@ -34,7 +34,7 @@ Presentation Clips : https://www.youtube.com/watch?v=sbabbPRCU60
 
 ## **📝🗒️TAKING NOTE FROM 6 LESSONS ##
 
-# **xPore: An AI-Powered App for Bioinformaticians**
+# 🧬**xPore: An AI-Powered App for Bioinformaticians**
 
 xPore is a software tool leveraging Nanopore sequencing data to analyze RNA modifications like m6A, enabling researchers to uncover molecular differences across cell types.
 
@@ -152,7 +152,7 @@ TinySleepNet, part of the *Learning from Biosignals* initiative, utilizes deep l
 
 
 
-## **Biosignal Analysis Overview**
+## 📶🧑‍🔬**Biosignal Analysis Overview**
 
 ### **1. Preprocessing**
 - Clean raw biosignals by removing noise and artifacts to ensure the data is ready for analysis and training.
@@ -292,7 +292,7 @@ Deep learning models transform raw biosignals into meaningful representations wi
 
 
 
-# AI for Detecting Code Plagiarism
+# 🕵️🪶AI for Detecting Code Plagiarism
 
 ## Overview
 The **Code Clone Detector** leverages AI to identify similar code fragments and detect plagiarism, even when the code has been altered. This tool benefits developers by improving software quality and assists educators in
@@ -392,13 +392,9 @@ The **Merry Tool** provides an accurate and user-friendly system for detecting c
 
 ---
 
-## Try Merry Today!
-Experience the efficiency of AI-driven code clone detection by [starting your free trial](#).
 
 
-
-
-# Detecting Mental Disorders from Social Media Data
+# 😞🫥📉📊Detecting Mental Disorders from Social Media Data
 
 This project, **"Predicting Mental Health Disorders from Social Media Data,"** focuses on identifying signs of depression through the analysis of social media posts. By examining user expressions on platforms like Facebook, Twitter, and Instagram, the system aims to detect individuals at risk and provide timely support or interventions.
 
@@ -511,7 +507,7 @@ The project demonstrates how AI and social media analysis can provide early warn
 
 
 
-# BiTNet: AI for Ultrasound Image Diagnosis
+# 🧫👩‍🔬BiTNet: AI for Ultrasound Image Diagnosis
 
 **BiTNet** is an AI-powered system developed to identify abnormalities in the upper abdomen using ultrasound imaging. By aiding general practitioners in detecting conditions such as cholangiocarcinoma, it reduces the burden on radiologists and enhances diagnostic confidence for over 25 conditions, including fatty liver, cirrhosis, and gallstones.
 
@@ -647,7 +643,7 @@ The next iteration, **BiTNet V2**, will feature a larger dataset and refined tra
 
 
 
-# AI for Criminal Arrest Assistance
+# 👮‍♂️🚔🚨AI for Criminal Arrest Assistance
 
 The **Research and Development of Tracking Systems for Arresting Criminals Using Artificial Intelligence** project aims to improve law enforcement capabilities and public safety. By employing AI-powered systems, the project facilitates real-time crime monitoring, evidence collection via CCTV, and the detection and tracking of suspects or vehicles.
 
