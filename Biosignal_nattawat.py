@@ -5,8 +5,8 @@ import torch
 import torch.nn as nn
 import sklearn.metrics as skmetrics
 import timeit
+
 from logger import get_logger
-from model import SimpleModel
 
 def simple_model():
     model = nn.Sequential(
