@@ -150,6 +150,8 @@ TinySleepNet, part of the *Learning from Biosignals* initiative, utilizes deep l
 
 ---
 
+
+
 ## **Biosignal Analysis Overview**
 
 ### **1. Preprocessing**
@@ -293,7 +295,7 @@ Deep learning models transform raw biosignals into meaningful representations wi
 # AI for Detecting Code Plagiarism
 
 ## Overview
-The **Code Clone Detector** leverages AI to identify similar code fragments and detect plagiarism, even when the code has been altered. This tool benefits developers by improving software quality and assists educators in identifying academic plagiarism more efficiently. The **Merry** system is currently available as a free trial.
+The **Code Clone Detector** leverages AI to identify similar code fragments and detect plagiarism, even when the code has been altered. This tool benefits developers by improving software quality and assists educators in
 
 ## What Are Code Clones?
 Code fragments are considered a **clone pair** if they exhibit sufficient similarity based on predefined criteria.
