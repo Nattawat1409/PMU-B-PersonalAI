@@ -28,3 +28,109 @@
 | 6 | AI for arresting criminals | [ObjectDetection](https://github.com/Nattawat1409/PMU-B-PersonalAI) | [AI for arresting criminals certificate](https://drive.google.com/file/d/1UCdoH4B4ptcakfH2dI8-BC5neZu6WEpl/view?usp=sharing) |
 
 
+
+## **📝🗒️TAKING NOTE FROM 6 LESSONS ##
+# **xPore: An AI-Powered App for Bioinformaticians**
+
+xPore is a software tool leveraging Nanopore sequencing data to analyze RNA modifications like m6A, enabling researchers to uncover molecular differences across cell types.
+
+---
+
+## **Problem Statement**
+
+**Objective:** Analyze RNA modifications and their impact on health and disease using Nanopore sequencing.  
+**Key Focus:** Detect and quantify modifications like m6A based on changes in electrical signals.
+
+---
+
+## **Key Concepts**
+
+1. **Central Dogma:** DNA → mRNA → Proteins (regulators of health/disease).  
+2. **Gene Expression:** mRNA sequencing reveals gene behavior and abnormalities.  
+3. **Nanopore RNA Sequencing:** Direct RNA sequencing through electrical signal analysis.  
+4. **RNA Modifications:** Chemical changes (e.g., m6A) affect cellular function and diseases.
+
+---
+
+## **Objectives**
+
+1. Identify modified RNA positions (e.g., m6A sites).  
+2. Quantify the modification rate (fraction of modified reads).  
+
+---
+
+## **Tools**
+
+- **Supervised:** EpiNano, MINES.  
+- **Unsupervised:** Tombo, Nanocompore, xPore.  
+
+---
+
+## **Data Processing Workflow**
+
+### **1. Data Collection**
+- **FAST5:** Raw electrical signals.  
+- **FASTQ:** Basecalled sequences.  
+- **FASTA:** Reference sequences.  
+- **BAM/SAM:** Alignment of RNA reads to references.  
+
+### **2. Preprocessing Steps**
+1. **Direct RNA Sequencing:** Collect current intensity levels.  
+2. **Base Calling:** Convert signals to RNA sequences using Guppy.  
+3. **Sequence Alignment:** Map sequences using Minimap2.  
+4. **Signal Alignment:** Align raw signals to RNA bases using Nanopolish.
+
+---
+
+## **Methodology: Bayesian Multi-Sample Gaussian Mixture Modelling**
+
+- **Gaussian Distribution:** Captures unmodified and modified RNA signals.  
+- **Bayesian Inference:** Estimates parameters for classification and modification rates.  
+
+### **Advantages**
+- Accurate representation of RNA states.  
+- Multi-sample analysis for robust comparisons.  
+- Parallel processing for fast execution.
+
+---
+
+## **Validation**
+
+- **Samples:** WT (natural m6A) vs. KO (m6A-inactivated).  
+- **Metrics:**
+  - **AUC-ROC:** 86%.  
+  - **Accuracy:** >95% (validated against m6ACE-Seq & DRACH motifs).  
+- **Outcomes:**  
+  - Identified unique m6A sites.  
+  - Quantified modification rates aligned with expected values.  
+
+---
+
+## **Applications**
+
+- Full transcriptome-wide m6A site detection.  
+- Comparative studies across tissues, cell lines, and clinical samples.  
+- Potential disease-specific RNA modification discovery.
+
+---
+
+## **Future Directions**
+
+### **1. Domain-Oriented**
+- Train supervised models (e.g., m6anet) using xPore outputs.  
+- Explore models less reliant on signal segmentation for end-to-end analysis.  
+- Improve interpretability for distinguishing modifications from errors.  
+
+### **2. Method-Oriented**
+- Integrate GMM with deep learning models (e.g., CNN).  
+- Test alternative distributions for long-tailed data.  
+
+---
+
+## **Key Takeaways**
+
+- **Validation:** Combine ML metrics with biological insights.  
+- **Applicability:** Extend to external datasets and clinical contexts.  
+- **Discovery:** Enable novel findings in RNA modification research.  
+- **User Accessibility:** Open-source, easy to install, lightweight, and fast.
+
