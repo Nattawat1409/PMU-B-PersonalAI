@@ -140,7 +140,7 @@ xPore is a software tool leveraging Nanopore sequencing data to analyze RNA modi
 - **Discovery:** Enable novel findings in RNA modification research.  
 - **User Accessibility:** Open-source, easy to install, lightweight, and fast.
 
-# **Learning from Biosignals**
+# 📶🧑‍🔬**Learning from Biosignals**
 
 Biosignals are crucial for medical diagnostics, providing insights into various physiological activities. For instance, EEG monitors brain function, while ECG tracks heart activity. Traditionally, interpreting these signals is performed by doctors, but high patient volumes often result in delays. Advances in AI and machine learning now allow for remote biosignal analysis, streamlining and enhancing diagnostic efficiency.
 
@@ -154,7 +154,7 @@ TinySleepNet, part of the *Learning from Biosignals* initiative, utilizes deep l
 
 
 
-## 📶🧑‍🔬**Biosignal Analysis Overview**
+## **Biosignal Analysis Overview**
 
 ### **1. Preprocessing**
 - Clean raw biosignals by removing noise and artifacts to ensure the data is ready for analysis and training.
