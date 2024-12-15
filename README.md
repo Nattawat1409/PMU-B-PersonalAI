@@ -288,3 +288,221 @@ Deep learning models transform raw biosignals into meaningful representations wi
    - Transfer learning to adapt models for wearable devices.
    - Focus on early-stage disease indicators for proactive care.
 
+
+
+# AI for Detecting Code Plagiarism
+
+## Overview
+The **Code Clone Detector** leverages AI to identify similar code fragments and detect plagiarism, even when the code has been altered. This tool benefits developers by improving software quality and assists educators in identifying academic plagiarism more efficiently. The **Merry** system is currently available as a free trial.
+
+## What Are Code Clones?
+Code fragments are considered a **clone pair** if they exhibit sufficient similarity based on predefined criteria.
+
+### Types of Clones (Syntactic-Based)
+1. **Type 1**: Identical code except for layout, white spaces, and comments.
+2. **Type 2**: Identical except for differences in literals, identifiers, data types, layout, white spaces, and comments.
+3. **Type 3**: Similar code with added, removed, or modified statements.
+4. **Type 4**: Same functionality but implemented using different syntax or algorithms.
+
+## Why Detect Code Clones?
+- **Plagiarism Detection**: Useful in identifying source code plagiarism.
+- **Code Maintenance**: Clones can hinder software maintenance processes.
+- **Quality Improvement**: Helps reduce redundancy, which affects 7-23% of source code in typical projects.
+- **Beneficial Clones**: Certain clones, such as those in software product lines, can improve code reuse and modularity.
+- **Clone Management**: Detection enables better management and mitigation of harmful clones.
+
+## Code Clone Detection Process
+1. **Preprocessing**: Standardizes source code by formatting its layout.
+2. **Transformation**: Converts code fragments into vector representations using machine learning.
+3. **Match Detection**: Identifies clones based on similarity metrics.
+4. **Formatting**: Structures the detection results for user review.
+5. **Post-Processing Filtering**: Filters out irrelevant or redundant results.
+6. **Aggregation**: Consolidates results for clear insights.
+
+## Challenges
+- Existing tools struggle with detecting clones after significant modifications (e.g., added, deleted, or modified statements).
+- Many detection tools require command-line expertise, limiting accessibility for non-technical users.
+
+## Objectives
+- Develop a machine learning-powered **code clone detection tool** and evaluate its performance.
+- Enhance user experience by:
+  - Providing a web-based application for clone detection.
+  - Enabling intuitive visualization of clone results.
+
+---
+
+## Merry: A Web-Based Code Clone Detection System
+
+### Features
+- **Machine Learning Models**:
+  - Implements and compares Decision Tree, Random Forest, SVM, and SVM with Sequential Minimal Optimization (SMO).
+- **Metrics**:
+  - **Syntactic**: Number of tokens, unique identifiers, operators, etc.
+  - **Semantic**: Behavioral insights using **code2vec**, a neural network trained on 12M real-world code snippets.
+- **Dataset**:
+  - Utilizes the **BigCloneBench** dataset—the largest labeled clone dataset derived from 25,000 Java projects.
+- **Web-Based Interface**:
+  - User-friendly GUI with **GitHub integration**.
+  - Detailed visual reports for easier result interpretation.
+
+### Merry Engine Workflow
+1. **Data Collection**:
+   - Leverages the **BigCloneBench** dataset for training and testing.
+   - Training set: 22,663 labeled clone pairs.
+   - Testing set: 4,724 labeled clone pairs.
+2. **Metrics Extraction**:
+   - **Syntactic**: Analyzes structural aspects like tokens, operators, and line counts.
+   - **Semantic**: Uses **code2vec** to understand functional similarity.
+3. **Clone Detection Process**:
+   - Parses Java methods and converts them into vector representations.
+   - Uses trained models to identify code clones based on similarity.
+   - Outputs results via the web app, offering visualization and reporting tools.
+
+---
+
+## Evaluation
+
+### Accuracy
+- Tested using the **BigCloneBench** dataset with metrics like precision, recall, and F1-score.
+- Performance varies depending on project size and complexity when applied to real-world software.
+
+### User Feedback
+- Compared **Merry** with command-line tools like **Simian** based on:
+  - **Ease of Understanding**: Clear setup and output.
+  - **Ease of Use**: Enhanced accessibility through the web-based interface.
+
+---
+
+## Conclusion
+The **Merry Tool** provides an accurate and user-friendly system for detecting code clones. Its integration of machine learning and GitHub support makes it ideal for developers and educators.
+
+### Current Challenges
+- Limited to Java projects.
+- Code2vec's runtime requires optimization for better performance.
+
+---
+
+## Future Directions
+1. Expand support for additional programming languages.
+2. Optimize the performance of **code2vec** for faster analysis.
+3. Develop clone-specific machine learning models for each clone type.
+4. Overcome MongoDB limitations by querying subsets of documents.
+
+---
+
+## Try Merry Today!
+Experience the efficiency of AI-driven code clone detection by [starting your free trial](#).
+
+
+
+
+# Detecting Mental Disorders from Social Media Data
+
+This project, **"Predicting Mental Health Disorders from Social Media Data,"** focuses on identifying signs of depression through the analysis of social media posts. By examining user expressions on platforms like Facebook, Twitter, and Instagram, the system aims to detect individuals at risk and provide timely support or interventions.
+
+---
+
+## Problem Statement
+
+Social media has become a platform where people frequently express their emotions, thoughts, and struggles. By analyzing these posts, we can uncover early indicators of mental health concerns, facilitating better care and mental health awareness.
+
+---
+
+## Data Collection
+
+### Social Media Categories
+
+1. **Forums**: Platforms for creating and replying to discussions. *(e.g., Reddit, Quora)*  
+2. **Microblogs**: Short posts with media or links. *(e.g., Twitter, Weibo)*  
+3. **Review Sites**: User evaluations of products or services. *(e.g., Yelp, Amazon)*  
+4. **Social Networks**: Platforms for connection and sharing. *(e.g., Facebook, LinkedIn)*  
+5. **Photo Sharing**: Focused on images and captions. *(e.g., Instagram, Flickr)*  
+
+### Social Media Matrix
+
+| **Category**      | **Custom Messages**                                                                                                                 | **Broadcast Messages**                                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Profile-Based**  | **Relationship Building**: Connect, communicate, and build relationships. *(e.g., Facebook, LinkedIn)*                              | **Self-Media**: Share updates and let others follow. *(e.g., Twitter, Weibo)*                                                                |
+| **Content-Based**  | **Collaboration**: Find answers, share advice, and solve problems together. *(e.g., Reddit, Quora)*                                 | **Creative Sharing**: Share hobbies, interests, and creativity. *(e.g., YouTube, Pinterest, Flickr)*                                         |
+
+### Data Collection Process
+
+1. **User Data**:  
+   - Directly gather participant information via surveys or questionnaires.  
+   - Aggregate publicly available posts.  
+2. **Social Media Analysis**:  
+   - Search for keywords like *"I was diagnosed with [condition]"* to locate relevant posts.  
+   - Annotate and categorize posts for further analysis.
+
+---
+
+## Data Exploration and Preprocessing
+
+### Domain Knowledge
+
+Understanding core concepts, such as symptoms of mental health disorders, is crucial for analyzing the data meaningfully.
+
+### Symptoms of Depression (Based on Social Media Indicators)
+
+- Loss of interest in usual activities.  
+- Feeling hopeless or down.  
+- Changes in energy levels: fatigue or hyperactivity.  
+- Altered eating habits: overeating or loss of appetite.  
+- Sleep irregularities: insomnia or oversleeping.  
+- Difficulty concentrating or focusing.  
+- Physical signs: slower speech, fidgeting, or restlessness.
+
+### Feature Extraction
+
+Using tools like **CountVectorizer** or **LIWC** (Linguistic Inquiry and Word Count):
+
+- Analyze word frequencies, patterns, and linguistic markers.  
+- Extract pronouns, sentiment indicators, and emotional cues (positive/negative words).  
+
+---
+
+## Predictive Modeling
+
+Natural Language Processing (NLP) combined with supervised machine learning enables the classification of mental health-related posts.
+
+### Workflow
+
+1. **Input Data**: Collect raw social media posts.  
+2. **Preprocessing**: Clean and transform text for analysis.  
+3. **Feature Extraction**: Convert text into numerical features using tools like **CountVectorizer**. Analyze patterns, sentiment, and emotional expressions.  
+4. **Model Training**: Train machine learning algorithms such as **Decision Trees**, **Random Forests**, or **Logistic Regression** using labeled data.  
+5. **Predictions**: Classify users' likelihood of experiencing mental health challenges.
+
+---
+
+## Model Evaluation
+
+### Metrics
+
+1. **Accuracy**:  
+   Measures the percentage of correctly predicted outcomes against the total number of predictions.  
+
+2. **ROC Curve (Receiver Operating Characteristic)**:  
+   - Plots the **True Positive Rate (Sensitivity)** against the **False Positive Rate (1 - Specificity)**.  
+   - **Area Under the Curve (AUC)** reflects the model's ability to distinguish between classes, with higher AUC values indicating stronger performance.  
+
+**Example Results**:  
+- Depression prediction accuracy: ~72.38%.  
+- Feature reduction strategies improve outcomes by removing irrelevant or conflicting data.  
+- Time-based analysis can provide better insights into behavioral trends.
+
+---
+
+## Future Directions
+
+1. Expand the AI system to analyze broader mental health issues, including anxiety and stress.  
+2. Incorporate support features that guide users toward professional help or resources.  
+3. Improve the system's ability to analyze multimedia content (e.g., images and videos).  
+4. Optimize algorithms to better detect nuanced emotional expressions.  
+
+---
+
+## Conclusion
+
+The project demonstrates how AI and social media analysis can provide early warnings for mental health concerns. By identifying and supporting individuals in distress, this system contributes to mental health awareness and care.
+
