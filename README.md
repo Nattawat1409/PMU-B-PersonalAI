@@ -1,7 +1,8 @@
 # PMU-B PersonalAI
 
 ## **ABOUT ME**
-
+I’m Nattawat Ruensumrit (ETPCA-S0237), a computer engineering student at King Mongkut's University of Technology Thonburi
+From all the courses I've studied, I've learned that conducting research involves multiple key components, including defining the problem, gathering data, preparing the data, building models, evaluating results, creating visualizations, presenting findings, and outlining potential future directions.
 ---
 
 * Name: Nattawat Ruensumrit   
