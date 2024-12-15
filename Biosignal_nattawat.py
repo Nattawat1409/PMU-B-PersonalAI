@@ -5,40 +5,47 @@ import torch
 import torch.nn as nn
 import sklearn.metrics as skmetrics
 import timeit
-
 from logger import get_logger
-
+from model import SimpleModel
 
 def simple_model():
     model = nn.Sequential(
-        # [Fs/2] conv, 128, /[Fs/4]
+        #1st layer #
         nn.Conv1d(in_channels=1, out_channels=128, kernel_size=50, stride=12, bias=False),  
+        #2nd layer #
         nn.BatchNorm1d(num_features=128, eps=0.001, momentum=0.01),
+        #3rd layer #
         nn.ReLU(inplace=True),
-        # 8 max-pool, /8
+        #4th laver #
         nn.MaxPool1d(kernel_size=8, stride=8),
-        # 0.5 dropout
+        #5th laver #
         nn.Dropout(p=0.5),
-        # 8 conv, 128, /1
+        #6th laver #
         nn.Conv1d(in_channels=128, out_channels=128, kernel_size=8, stride=1, bias=False),
+        #7th laver #
         nn.BatchNorm1d(num_features=128, eps=0.001, momentum=0.01),
+        #8th laver #
         nn.ReLU(inplace=True),
-        # 8 conv, 128, /1
+        #9th laver #
         nn.Conv1d(in_channels=128, out_channels=128, kernel_size=8, stride=1, bias=False),
+        #10th laver #
         nn.BatchNorm1d(num_features=128, eps=0.001, momentum=0.01),
+        #11th laver #
         nn.ReLU(inplace=True),
-        # 8 conv, 128, /1
+        #12th laver #
         nn.Conv1d(in_channels=128, out_channels=128, kernel_size=8, stride=1, bias=False),
+        #12th laver #
         nn.BatchNorm1d(num_features=128, eps=0.001, momentum=0.01),
+        #13th laver #
         nn.ReLU(inplace=True),
-        # 4 max-pool, /4
+        #14th laver #
         nn.MaxPool1d(kernel_size=4, stride=4),
-        # 0.5 dropout
+        #15th laver #
         nn.Dropout(p=0.5),
-        # Flatten
+        #16th laver #
         nn.Flatten(),
-        # 5 softmax
-        nn.Linear(in_features=384, out_features=5, bias=False)
+        #17th laver #
+        nn.Linear(in_features=384, out_features=5, bias=False) #5 of out_feature from 1.)awake , 2.)N1 , 3.)N2 , 4.)N3 , 5.)REM
     )
     return model
 
